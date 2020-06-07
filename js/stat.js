@@ -18,16 +18,16 @@ var renderCloud = function (ctx, x, y, color) {
 var getMaxElement = function (arr) {
   var maxElement = arr[0];
 
-  for (var i = 0; i < arr.length; i++) {
-    if (arr[i] > maxElement) {
-      maxElement = arr[i];
+  arr.forEach(function (item) {
+    if (item > maxElement) {
+      maxElement = item;
     }
-  }
+  });
 
   return maxElement;
 };
 
-var getRandomOpacity = function (min, max) {
+var getRandomNumberFromRange = function (min, max) {
   return Math.ceil(Math.random() * (max - min) + min);
 };
 
@@ -43,19 +43,14 @@ window.renderStatistics = function (ctx, players, times) {
 
   var maxTime = getMaxElement(times);
 
-  for (var i = 0; i < players.length; i++) {
+  players.forEach(function (item, index) {
     ctx.fillStyle = '#000';
-    ctx.fillText(players[i], CLOUD_X + GAP + ((BAR_WIDTH + BAR_GAP) * i), CLOUD_Y + CLOUD_HEIGHT - (GAP / 2) - FONT_GAP);
+    ctx.fillText(item, CLOUD_X + GAP + ((BAR_WIDTH + BAR_GAP) * index), CLOUD_Y + CLOUD_HEIGHT - (GAP / 2) - FONT_GAP);
 
-    if (players[i] === 'Вы') {
-      ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-    } else {
-      ctx.fillStyle = 'hsl(240deg,' + getRandomOpacity(10, 100) + '%, 50%)';
-    }
-
-    ctx.fillRect(CLOUD_X + GAP + ((BAR_WIDTH + BAR_GAP) * i), CLOUD_Y + CLOUD_HEIGHT - GAP - FONT_GAP - ((MAX_BAR_HEIGHT * times[i]) / maxTime), BAR_WIDTH, (MAX_BAR_HEIGHT * times[i]) / maxTime);
+    ctx.fillStyle = item === 'Вы' ? 'rgba(255, 0, 0, 1)' : 'hsl(240deg,' + getRandomNumberFromRange(10, 100) + '%, 50%)';
+    ctx.fillRect(CLOUD_X + GAP + ((BAR_WIDTH + BAR_GAP) * index), CLOUD_Y + CLOUD_HEIGHT - GAP - FONT_GAP - ((MAX_BAR_HEIGHT * times[index]) / maxTime), BAR_WIDTH, (MAX_BAR_HEIGHT * times[index]) / maxTime);
 
     ctx.fillStyle = '#000';
-    ctx.fillText(Math.ceil(times[i]), CLOUD_X + GAP + ((BAR_WIDTH + BAR_GAP) * i), CLOUD_Y + CLOUD_HEIGHT - (GAP * 2) - FONT_GAP - ((MAX_BAR_HEIGHT * times[i]) / maxTime));
-  }
+    ctx.fillText(Math.ceil(times[index]), CLOUD_X + GAP + ((BAR_WIDTH + BAR_GAP) * index), CLOUD_Y + CLOUD_HEIGHT - (GAP * 2) - FONT_GAP - ((MAX_BAR_HEIGHT * times[index]) / maxTime));
+  });
 };
