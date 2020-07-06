@@ -29,5 +29,5 @@ window.generalFunctions = (function () {
     getMaxElement: getMaxElement,
     getRandomNumberFromRange: getRandomNumberFromRange,
     getRandomIndexArray: getRandomIndexArray
-  }
+  };
 })();
