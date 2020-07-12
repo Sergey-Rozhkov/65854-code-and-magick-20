@@ -25,9 +25,19 @@ window.generalFunctions = (function () {
     return arr[result];
   };
 
+  var errorHandler = function (errorMessage, selector, positionMessage) {
+    var node = document.createElement('div');
+    node.style = 'z-index: 10; margin: 0 auto; text-align: center; background-color: red;';
+    node.style.fontSize = '28px';
+
+    node.textContent = errorMessage;
+    document.querySelector(selector).insertAdjacentElement(positionMessage, node);
+  };
+
   return {
     getMaxElement: getMaxElement,
     getRandomNumberFromRange: getRandomNumberFromRange,
-    getRandomIndexArray: getRandomIndexArray
+    getRandomIndexArray: getRandomIndexArray,
+    errorHandler: errorHandler
   };
 })();
