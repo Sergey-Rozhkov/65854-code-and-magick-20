@@ -16,8 +16,7 @@ window.constants = (function () {
   var SETUP_DEFAULT_TOP = '80px';
   var SETUP_DEFAULT_LEFT = '50%';
   var MAX_SIMILAR_WIZARD_COUNT = 4;
-  var URL_SAVE = 'https://javascript.pages.academy/code-and-magick';
-  var URL_LOAD = 'https://javascript.pages.academy/code-and-magick/data';
+  var API_URL = 'https://javascript.pages.academy/code-and-magick';
   var TIMEOUT_IN_MS = 10000;
 
   return {
@@ -36,8 +35,7 @@ window.constants = (function () {
     SETUP_DEFAULT_TOP: SETUP_DEFAULT_TOP,
     SETUP_DEFAULT_LEFT: SETUP_DEFAULT_LEFT,
     MAX_SIMILAR_WIZARD_COUNT: MAX_SIMILAR_WIZARD_COUNT,
-    URL_SAVE: URL_SAVE,
-    URL_LOAD: URL_LOAD,
+    API_URL: API_URL,
     TIMEOUT_IN_MS: TIMEOUT_IN_MS
   };
 })();

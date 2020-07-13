@@ -20,7 +20,7 @@
   var successHandler = function (list) {
     var fragment = document.createDocumentFragment();
     for (var j = 0; j < window.constants.MAX_SIMILAR_WIZARD_COUNT; j++) {
-      fragment.appendChild(renderWizard(window.generalFunctions.getRandomIndexArray(list)));
+      fragment.appendChild(renderWizard(list[j]));
     }
     similarListElement.appendChild(fragment);
 
