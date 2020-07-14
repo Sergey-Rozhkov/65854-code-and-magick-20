@@ -19,20 +19,12 @@ window.dialog = (function () {
     }
   };
 
-  var setTagFocus = function (tagName) {
-    tagName.focused = true;
-  };
-
-  var setTagBlur = function (tagName) {
-    tagName.focused = false;
-  };
-
   setupUserNameElement.addEventListener('focus', function () {
-    setTagFocus(setupUserNameElement);
+    setupUserNameElement.focused = true;
   });
 
   setupUserNameElement.addEventListener('blur', function () {
-    setTagBlur(setupUserNameElement);
+    setupUserNameElement.focused = false;
   });
 
   var openPopup = function () {
